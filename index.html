@@ -176,6 +176,54 @@
             backdrop-filter: blur(10px);
         }
         
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-photo {
+            flex-shrink: 0;
+        }
+        
+        .about-photo img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border: 5px solid #667eea;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .about-title {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
         .contact {
             background: #f7fafc;
             text-align: center;
@@ -230,6 +278,17 @@
             .services-grid,
             .value-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .about-photo img {
+                width: 250px;
+                height: 250px;
             }
         }
     </style>
@@ -298,6 +357,24 @@
                 <div class="org-tag">Community Organisations</div>
                 <div class="org-tag">Nonprofit Startups</div>
                 <div class="org-tag">Social Enterprises</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>About</h2>
+            <div class="about-content">
+                <div class="about-photo">
+                    <img src="https://drive.google.com/file/d/1yom12l9J2udMxDU6Huclg56_mUJQrTl0/view?usp=sharing" alt="Founder Photo">
+                </div>
+                <div class="about-text">
+                    <h3>Reuben Bance</h3>
+                    <p class="about-title">Founder, Resona Consulting</p>
+                    <p>With a passion for helping mission-driven organisations maximize their impact, I founded Resona Consulting to bridge the gap between complex data and actionable insights.</p>
+                    <p>My background in data analysis and nonprofit work has taught me one critical lesson: the best analysis means nothing if organizations can't understand and use it. That's why I focus on delivering clear, practical recommendations that your team can implement immediately.</p>
+                    <p>That way, you can get on with the work that really matters - delivering your organisation's mission.</p>
+                </div>
             </div>
         </div>
     </section>
