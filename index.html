@@ -75,24 +75,22 @@
             z-index: -1;
             overflow: hidden;
             background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
-            animation: gradientShift 15s ease infinite;
+            animation: gradientShift 12s ease-in-out infinite;
+            background-size: 400% 400%;
         }
         
         @keyframes gradientShift {
             0% {
-                background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+                background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 50%, #fce7f3 100%);
             }
-            25% {
-                background: linear-gradient(135deg, #faf5ff 0%, #e9d5ff 100%);
+            33% {
+                background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 50%, #fae8ff 100%);
             }
-            50% {
-                background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            }
-            75% {
-                background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);
+            66% {
+                background: linear-gradient(135deg, #fae8ff 0%, #ddd6fe 50%, #dbeafe 100%);
             }
             100% {
-                background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+                background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 50%, #fce7f3 100%);
             }
         }
         
@@ -450,15 +448,7 @@
     </style>
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="shape circle" style="width: 150px; height: 150px; top: 10%; left: 5%; animation: float1 20s ease-in-out infinite;"></div>
-        <div class="shape square" style="width: 100px; height: 100px; top: 20%; right: 10%; animation: float2 15s ease-in-out infinite;"></div>
-        <div class="shape circle" style="width: 200px; height: 200px; top: 50%; left: 80%; animation: float3 25s ease-in-out infinite;"></div>
-        <div class="shape triangle" style="top: 70%; left: 15%; animation: float1 18s ease-in-out infinite 2s;"></div>
-        <div class="shape square" style="width: 120px; height: 120px; top: 40%; left: 50%; animation: pulse 8s ease-in-out infinite;"></div>
-        <div class="shape circle" style="width: 80px; height: 80px; bottom: 15%; right: 20%; animation: float2 22s ease-in-out infinite 5s;"></div>
-        <div class="shape square" style="width: 90px; height: 90px; top: 80%; left: 70%; animation: float3 16s ease-in-out infinite 3s;"></div>
-    </div>
+    <div class="animated-bg"></div>
     
     <section class="hero">
         <div class="hero-content">
