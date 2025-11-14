@@ -70,6 +70,11 @@
             0%, 100% { opacity: 0.15; transform: scale(1); }
             50% { opacity: 0.25; transform: scale(1.05); }
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -82,8 +87,78 @@
             color: #333;
             overflow-x: hidden;
             position: relative;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
         }
         
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #667eea;
+        }
+        
+        .navbar-logo img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .navbar-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        
+        .navbar-link:hover {
+            color: #667eea;
+        }
+        
+        .navbar-cta {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .navbar-cta:hover {
+            transform: translateY(-2px);
+        }
         .animated-bg {
             position: fixed;
             top: 0;
@@ -565,6 +640,19 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-logo">
+                <img src="R_logo.png" alt="Resona Logo">
+                <span class="navbar-brand">RESONA</span>
+            </a>
+            <div class="navbar-links">
+                <a href="#about" class="navbar-link">About</a>
+                <a href="#contact" class="navbar-cta">Get In Touch</a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="animated-bg">
         <div class="shape circle" style="width: 150px; height: 150px; top: 10%; left: 8%; animation: float1 20s ease-in-out infinite;"></div>
         <div class="shape circle" style="width: 100px; height: 100px; top: 20%; right: 8%; animation: float2 15s ease-in-out infinite;"></div>
@@ -642,7 +730,7 @@
         </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <h2>About</h2>
             <div class="about-content">
@@ -706,5 +794,6 @@
     </footer>
 </body>
 </html>
+
 
 
