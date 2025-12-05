@@ -333,7 +333,7 @@
 
     <header class="article-header">
         <h1>Transforming Major Donor Identification with Predictive Modelling</h1>
-        <div class="article-meta">By Reuben Bance | 2025</div>
+        <div class="article-meta">Reuben Bance, Resona Consulting</div>
     </header>
 
     <article class="article-container">
@@ -376,13 +376,13 @@
 
             <p>Beyond the basic RFM model (Recency, Frequency, and Monetary values), I calculate gift velocity (i.e. are donations increasing?), consistency patterns, and seasonal giving behaviours. Engagement signals, like event attendance, email opens, survey responses, and volunteer activity all indicate affinity. I've found that engagement often predicts giving better than capacity alone. Wealth screening data is valuable, but it's often incomplete. I create composite capacity scores that handle missing data intelligently, using features like postcode indices, giving history, and other publicly available information. Lifecycle context - career stage, donor tenure, life events - all matter. The art lies in creating features that are both predictive and interpretable. Black boxes that work but can't be explained are pretty useless for getting buy-in.</p>
 
-            <h3>Handling Imbalanced Data</h3>
+            <h3>Handling imbalanced data</h3>
 
             <p>Major donors typically represent 2-5% of most databases. This class imbalance poses technical challenges: a model that simply predicts "not a major donor" for everyone achieves 95%+ accuracy but zero usefulness.</p>
 
             <p>I address this through techniques like SMOTE (Synthetic Minority Over-sampling), class weighting, and careful validation using precision-recall curves rather than raw accuracy. The goal isn't to maximise overall accuracy but to identify that crucial 5% as reliably as possible.</p>
 
-            <h3>Model Selection and Validation</h3>
+            <h3>Model selection and validation</h3>
 
             <p>For most charity applications, I favour ensemble methods like Random Forests or Gradient Boosting. These approaches:</p>
 
@@ -395,7 +395,7 @@
 
             <p>I validate models using time-based splits: train on historical data, predict forward in time, then measure what actually happened. This mimics real-world usage and prevents data leakage.</p>
 
-            <h2>The Incomplete Data Challenge</h2>
+            <h2>The incomplete data challenge</h2>
 
             <p>One question I hear repeatedly: "Our wealth screening only covers about a third of donors. Can modelling still work?"</p>
 
@@ -411,7 +411,7 @@
 
             <p>The key insight: your historical data contains hundreds of other signals beyond wealth screening. Modelling helps you leverage all of them simultaneously.</p>
 
-            <h2>From Scores to Strategy: Making Predictions Actionable</h2>
+            <h2>Making predictions actionable</h2>
 
             <p>A model that generates accurate predictions but doesn't change behaviour has zero value. I design my outputs for maximum usability:</p>
 
@@ -423,7 +423,7 @@
 
             <p><strong>Decile analysis:</strong> I rank-order your entire database and show performance by decile. The top 10% should contain 40-60% of your future major donors. If not, something's wrong.</p>
 
-            <h2>Real-World Impact: What Good Looks Like</h2>
+            <h2>What good looks like</h2>
 
             <p>When I implement predictive modelling with clients, I typically see:</p>
 
@@ -434,7 +434,7 @@
                 <li><strong>Retention improvements:</strong> Identifying at-risk major donors early allows for proactive stewardship</li>
             </ul>
 
-            <h2>Common Pitfalls and How to Avoid Them</h2>
+            <h2>Common pitfalls</h2>
 
             <p><strong>Over-reliance on capacity:</strong> The wealthiest people aren't always the most generous. Balance capacity signals with affinity and engagement data.</p>
 
@@ -446,7 +446,7 @@
 
             <p><strong>Poor data hygiene:</strong> Rubbish in, rubbish out. Before building models, ensure your data is clean, deduplicated, and consistently formatted (I can help with this too).</p>
 
-            <h2>The Human Element Still Matters</h2>
+            <h2>Humans still matter!</h2>
 
             <p>The most successful implementations I've seen combine machine precision with human judgment. Predictive models augment, rather than replace, fundraisers.</p>
 
@@ -456,7 +456,7 @@
 
             <p>The magic happens at the intersection.</p>
 
-            <h2>Getting Started: Practical Steps</h2>
+            <h2>Getting started: practical steps</h2>
 
             <p>If you're considering predictive modelling for your organisation:</p>
 
@@ -468,7 +468,7 @@
                 <li><strong>Measure and iterate:</strong> Track which high-scoring prospects convert. Use this feedback to refine your models over time.</li>
             </ol>
 
-            <h2>Looking Forward</h2>
+            <h2>Looking forward</h2>
 
             <p>Predictive modelling in the charity sector is still maturing. I'm seeing exciting developments in:</p>
 
@@ -481,11 +481,11 @@
 
             <p>The fundamental truth remains: your donor database contains patterns that can dramatically improve fundraising effectiveness. The question isn't whether predictive modelling works—the evidence is clear that it does—but how to implement it in a way that fits your organisation's culture, capacity, and goals.</p>
 
-            <h2 style="border-bottom: none; margin-top: 60px;">Ready to Transform Your Donor Strategy?</h2>
+            <h2 style="border-bottom: none; margin-top: 60px;">Ready to transform your Donor Strategy?</h2>
 
             <p>At Resona, I specialise in making advanced analytics accessible to charities of all sizes. My approach emphasises transparency (you should understand why models make their predictions), practicality (models must integrate seamlessly into existing workflows), and partnership (I train your team to interpret and act on insights, not just deliver black-box scores).</p>
 
-            <p>I believe that every charity, regardless of size, deserves access to the data science techniques that major organisations have used for years. The tools have become more accessible. The techniques are well-established. What's often missing is expertise in applying them to the unique challenges of charity fundraising.</p>
+            <p>I believe that every organisation, regardless of size, deserves access to the data science techniques that major organisations have used for years. The tools have become more accessible. The techniques are well-established. What's often missing is expertise in applying them to the unique challenges of charity fundraising.</p>
 
             <p>If you'd like to discuss how predictive modelling could work for your organisation, I'd love to hear from you. Whether you're just starting to think about data-driven fundraising or you're ready to implement a comprehensive solution, I'm here to help you unlock the patterns hidden in your donor data and turn them into meaningful relationships and transformational gifts.</p>
         </div>
@@ -505,3 +505,4 @@
     </footer>
 </body>
 </html>
+
