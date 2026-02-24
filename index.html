@@ -8,16 +8,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -28,15 +20,12 @@
 
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             background: #ffffff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 1000;
             padding: 15px 0;
         }
-        
         .navbar-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -45,7 +34,6 @@
             align-items: center;
             justify-content: space-between;
         }
-        
         .navbar-logo {
             display: flex;
             align-items: center;
@@ -53,35 +41,16 @@
             text-decoration: none;
             color: #52a068;
         }
-        
-        .navbar-logo img {
-            width: 40px;
-            height: 40px;
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-        }
-        
-        .navbar-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        
+        .navbar-logo img { width: 40px; height: 40px; }
+        .navbar-brand { font-weight: 700; font-size: 1.2em; letter-spacing: 1px; }
+        .navbar-links { display: flex; align-items: center; gap: 30px; }
         .navbar-link {
             color: #4a5568;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s ease;
         }
-        
-        .navbar-link:hover {
-            color: #52a068;
-        }
-        
+        .navbar-link:hover { color: #52a068; }
         .navbar-cta {
             padding: 10px 25px;
             background: #52a068;
@@ -91,10 +60,7 @@
             font-weight: 600;
             transition: background 0.2s ease;
         }
-        
-        .navbar-cta:hover {
-            background: #458756;
-        }
+        .navbar-cta:hover { background: #458756; }
 
         .hero {
             background-image: url('background.jpg');
@@ -106,37 +72,23 @@
             text-align: center;
             position: relative;
         }
-        
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
             z-index: 1;
         }
-        
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
-        
-        .hero h1,
-        .hero .tagline,
-        .hero .hero-company {
+        .hero h1, .hero .tagline, .hero .hero-company {
             text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2);
         }
-        
-        .hero-logo {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-        }
-        
+        .hero-logo { width: 100px; height: 100px; margin-bottom: 20px; }
         .hero-company {
             font-size: 1.3em;
             font-weight: 600;
@@ -144,20 +96,8 @@
             margin-bottom: 20px;
             opacity: 0.95;
         }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .tagline {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            line-height: 1.5;
-        }
-        
+        h1 { font-size: 3em; margin-bottom: 20px; font-weight: 700; }
+        .tagline { font-size: 1.3em; margin-bottom: 30px; opacity: 0.95; line-height: 1.5; }
         .cta-button {
             display: inline-block;
             padding: 15px 40px;
@@ -169,23 +109,10 @@
             font-size: 1.1em;
             transition: background 0.2s ease;
         }
-        
-        .cta-button:hover {
-            background: #f7fafc;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-        
-        h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #2d3748;
-        }
-        
+        .cta-button:hover { background: #f7fafc; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        h2 { font-size: 2.5em; margin-bottom: 20px; color: #2d3748; }
         .section-intro {
             font-size: 1.2em;
             color: #4a5568;
@@ -193,88 +120,59 @@
             max-width: 800px;
         }
 
-        .problem {
-            background: #f7fafc;
-        }
-
-        .problem-content {
-            max-width: 800px;
-        }
-
-        .problem-list {
-            list-style: none;
-            margin: 30px 0;
-        }
-
+        .problem { background: #f7fafc; }
+        .problem-content { max-width: 800px; }
+        .problem-list { list-style: none; margin: 30px 0; }
         .problem-list li {
-            padding: 15px 0 15px 40px;
+            padding: 15px 0 15px 44px;
             position: relative;
             font-size: 1.1em;
             color: #4a5568;
             border-bottom: 1px solid #e2e8f0;
         }
-
-        .problem-list li:before {
-            content: "✗";
+        .problem-list li .problem-icon {
             position: absolute;
             left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
             color: #e53e3e;
-            font-weight: bold;
-            font-size: 1.3em;
+            flex-shrink: 0;
         }
 
-        .solution {
-            background: #ffffff;
-        }
-
+        .solution { background: #ffffff; }
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
             margin-top: 50px;
         }
-        
         .feature-card {
             background: #f7fafc;
             padding: 40px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
         }
-        
         .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            width: 44px;
+            height: 44px;
+            margin-bottom: 18px;
+            color: #52a068;
         }
-        
-        .feature-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: #2d3748;
-        }
+        .feature-card h3 { font-size: 1.5em; margin-bottom: 15px; color: #2d3748; }
+        .feature-card p { color: #4a5568; line-height: 1.7; }
 
-        .feature-card p {
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        .how-it-works {
-            background: #f7fafc;
-        }
-
+        .how-it-works { background: #f7fafc; }
         .steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-top: 50px;
         }
-
-        .step {
-            text-align: center;
-        }
-
+        .step { text-align: center; }
         .step-number {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: #52a068;
             color: white;
             border-radius: 50%;
@@ -285,59 +183,24 @@
             font-weight: bold;
             margin: 0 auto 20px;
         }
+        .step h3 { font-size: 1.3em; margin-bottom: 10px; color: #2d3748; }
+        .step p { color: #4a5568; }
 
-        .step h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #2d3748;
-        }
-
-        .step p {
-            color: #4a5568;
-        }
-
-        .benefits {
-            background: #ffffff;
-        }
-
+        .benefits { background: #ffffff; }
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
+        .benefit { text-align: center; padding: 30px; }
+        .benefit-stat { font-size: 3em; font-weight: 700; color: #52a068; margin-bottom: 10px; }
+        .benefit-label { font-size: 1.1em; color: #4a5568; }
 
-        .benefit {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .benefit-stat {
-            font-size: 3em;
-            font-weight: 700;
-            color: #52a068;
-            margin-bottom: 10px;
-        }
-
-        .benefit-label {
-            font-size: 1.1em;
-            color: #4a5568;
-        }
-
-        /* ── Live Demo Section ── */
-        .live-demo {
-            background: #f7fafc;
-            padding: 80px 0 0;
-        }
-
-        .live-demo > .container {
-            padding-bottom: 0;
-        }
-
-        .live-demo h2 {
-            color: #2d3748;
-        }
-
+        /* Live Demo */
+        .live-demo { background: #f7fafc; padding: 80px 0 0; }
+        .live-demo > .container { padding-bottom: 0; }
+        .live-demo h2 { color: #2d3748; }
         .demo-wrapper {
             margin-top: 40px;
             border: 2px solid #e2e8f0;
@@ -345,7 +208,6 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-
         .demo-banner {
             background: #52a068;
             color: white;
@@ -354,11 +216,13 @@
             font-size: 13px;
             font-weight: 500;
             letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-
         .demo-banner strong { font-weight: 700; }
-
-        /* Dashboard styles */
+        .demo-banner-icon { width: 14px; height: 14px; opacity: 0.9; }
         .demo-header {
             background: #ffffff;
             border-bottom: 1px solid #e2e8f0;
@@ -369,18 +233,8 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-
-        .demo-header-left h3 {
-            font-size: 22px;
-            color: #2d3748;
-            margin-bottom: 4px;
-        }
-
-        .demo-header-left p {
-            color: #718096;
-            font-size: 14px;
-        }
-
+        .demo-header-left h3 { font-size: 22px; color: #2d3748; margin-bottom: 4px; }
+        .demo-header-left p { color: #718096; font-size: 14px; }
         .live-badge {
             display: inline-flex;
             align-items: center;
@@ -394,32 +248,23 @@
             font-weight: 600;
             letter-spacing: 0.5px;
         }
-
         .pulse-dot {
-            width: 7px;
-            height: 7px;
+            width: 7px; height: 7px;
             background: #52a068;
             border-radius: 50%;
             animation: pulse 1.8s ease-in-out infinite;
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(0.7); }
         }
-
-        .demo-body {
-            background: #f4f9f5;
-            padding: 20px;
-        }
-
+        .demo-body { background: #f4f9f5; padding: 20px; }
         .demo-stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px;
             margin-bottom: 18px;
         }
-
         .demo-stat-card {
             background: white;
             border: 1px solid #d4e4d8;
@@ -428,7 +273,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .demo-stat-card::before {
             content: '';
             position: absolute;
@@ -437,37 +281,15 @@
             background: #52a068;
             border-radius: 10px 10px 0 0;
         }
-
-        .demo-stat-value {
-            font-size: 26px;
-            font-weight: 700;
-            color: #3d7a50;
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .demo-stat-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: #718096;
-            text-transform: uppercase;
-            letter-spacing: 0.7px;
-        }
-
+        .demo-stat-value { font-size: 26px; font-weight: 700; color: #3d7a50; line-height: 1; margin-bottom: 5px; }
+        .demo-stat-label { font-size: 11px; font-weight: 600; color: #718096; text-transform: uppercase; letter-spacing: 0.7px; }
         .demo-main-grid {
             display: grid;
             grid-template-columns: 1fr 340px;
             gap: 16px;
             margin-bottom: 16px;
         }
-
-        .demo-map-card {
-            background: white;
-            border: 1px solid #d4e4d8;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
+        .demo-map-card { background: white; border: 1px solid #d4e4d8; border-radius: 10px; overflow: hidden; }
         .demo-card-header {
             padding: 14px 18px;
             border-bottom: 1px solid #e2e8f0;
@@ -475,38 +297,27 @@
             align-items: center;
             justify-content: space-between;
         }
+        .demo-card-title { font-size: 13px; font-weight: 600; color: #2d3748; }
+        .demo-card-sub { font-size: 12px; color: #a0aec0; }
+        #demo-map { height: 440px; }
+        .demo-sidebar { display: flex; flex-direction: column; gap: 14px; }
+        .demo-search-card { background: white; border: 1px solid #d4e4d8; border-radius: 10px; padding: 14px; }
 
-        .demo-card-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
-        .demo-card-sub {
-            font-size: 12px;
+        /* Search input with icon */
+        .demo-search-wrap { position: relative; }
+        .demo-search-wrap .search-icon {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
             color: #a0aec0;
+            pointer-events: none;
         }
-
-        #demo-map {
-            height: 440px;
-        }
-
-        .demo-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .demo-search-card {
-            background: white;
-            border: 1px solid #d4e4d8;
-            border-radius: 10px;
-            padding: 14px;
-        }
-
         .demo-search-input {
             width: 100%;
-            padding: 9px 13px;
+            padding: 9px 13px 9px 33px;
             border: 1.5px solid #e2e8f0;
             border-radius: 7px;
             font-size: 13px;
@@ -515,97 +326,40 @@
             background: #f4f9f5;
             transition: border-color 0.2s;
         }
+        .demo-search-input:focus { outline: none; border-color: #52a068; background: white; }
 
-        .demo-search-input:focus {
-            outline: none;
-            border-color: #52a068;
-            background: white;
-        }
-
-        .demo-list-card {
-            background: white;
-            border: 1px solid #d4e4d8;
-            border-radius: 10px;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .demo-fundraiser-items {
-            max-height: 340px;
-            overflow-y: auto;
-        }
-
+        .demo-list-card { background: white; border: 1px solid #d4e4d8; border-radius: 10px; overflow: hidden; flex: 1; }
+        .demo-fundraiser-items { max-height: 340px; overflow-y: auto; }
         .demo-fundraiser-item {
             padding: 13px 16px;
             border-bottom: 1px solid #f1f3f5;
             cursor: pointer;
             transition: background 0.15s;
         }
-
         .demo-fundraiser-item:last-child { border-bottom: none; }
         .demo-fundraiser-item:hover { background: #f4f9f5; }
-
-        .demo-fundraiser-item.highlighted {
-            background: #e8f5ec;
-            border-left: 3px solid #52a068;
-        }
-
-        .dfi-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 2px;
-        }
-
+        .demo-fundraiser-item.highlighted { background: #e8f5ec; border-left: 3px solid #52a068; }
+        .dfi-name { font-size: 14px; font-weight: 600; color: #2d3748; margin-bottom: 2px; }
         .dfi-location {
             font-size: 12px;
             color: #718096;
             margin-bottom: 7px;
-        }
-
-        .dfi-stats {
             display: flex;
-            gap: 14px;
-            font-size: 12px;
-            color: #4a5568;
+            align-items: center;
+            gap: 4px;
         }
-
+        .dfi-location svg { width: 11px; height: 11px; flex-shrink: 0; }
+        .dfi-stats { display: flex; gap: 14px; font-size: 12px; color: #4a5568; }
         .dfi-stats strong { color: #3d7a50; }
+        .dfi-stat-item { display: flex; align-items: center; gap: 4px; }
+        .dfi-stat-item svg { width: 11px; height: 11px; flex-shrink: 0; color: #718096; }
 
-        .demo-insights-card {
-            background: white;
-            border: 1px solid #d4e4d8;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .demo-insight-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-        .demo-insight-cell {
-            padding: 14px 18px;
-            border-right: 1px solid #e2e8f0;
-        }
-
+        .demo-insights-card { background: white; border: 1px solid #d4e4d8; border-radius: 10px; overflow: hidden; }
+        .demo-insight-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+        .demo-insight-cell { padding: 14px 18px; border-right: 1px solid #e2e8f0; }
         .demo-insight-cell:last-child { border-right: none; }
-
-        .demo-insight-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.7px;
-            color: #718096;
-            margin-bottom: 5px;
-        }
-
-        .demo-insight-value {
-            font-size: 15px;
-            font-weight: 600;
-            color: #2d3748;
-        }
-
+        .demo-insight-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; color: #718096; margin-bottom: 5px; }
+        .demo-insight-value { font-size: 15px; font-weight: 600; color: #2d3748; }
         .demo-footer-bar {
             text-align: center;
             padding: 12px;
@@ -615,7 +369,7 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        /* Leaflet cluster colours to match brand */
+        /* Cluster colours */
         .marker-cluster-small { background-color: rgba(82,160,104,0.5); }
         .marker-cluster-small div { background-color: rgba(82,160,104,0.85); }
         .marker-cluster-medium { background-color: rgba(61,122,80,0.5); }
@@ -624,11 +378,8 @@
         .marker-cluster-large div { background-color: rgba(41,92,58,0.85); }
         .marker-cluster { color: white; font-weight: 700; }
 
-        /* ── About & Contact ── */
-        .about {
-            background: #f7fafc;
-        }
-        
+        /* About & Contact */
+        .about { background: #f7fafc; }
         .about-content {
             display: flex;
             gap: 60px;
@@ -636,42 +387,12 @@
             max-width: 1000px;
             margin: 40px auto 0;
         }
-        
-        .about-photo {
-            flex-shrink: 0;
-        }
-        
-        .about-photo img {
-            width: 250px;
-            height: 250px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .about-text h3 {
-            font-size: 1.8em;
-            color: #2d3748;
-            margin-bottom: 5px;
-        }
-        
-        .about-title {
-            font-size: 1.1em;
-            color: #52a068;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-            color: #4a5568;
-            line-height: 1.8;
-        }
-        
-        .social-links {
-            margin-top: 20px;
-        }
-        
+        .about-photo { flex-shrink: 0; }
+        .about-photo img { width: 250px; height: 250px; border-radius: 8px; object-fit: cover; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .about-text h3 { font-size: 1.8em; color: #2d3748; margin-bottom: 5px; }
+        .about-title { font-size: 1.1em; color: #52a068; font-weight: 600; margin-bottom: 20px; }
+        .about-text p { margin-bottom: 15px; color: #4a5568; line-height: 1.8; }
+        .social-links { margin-top: 20px; }
         .linkedin-link {
             display: inline-flex;
             align-items: center;
@@ -684,44 +405,15 @@
             font-weight: 600;
             transition: background 0.2s ease;
         }
-        
-        .linkedin-link:hover {
-            background: #005885;
-        }
-        
-        .linkedin-icon {
-            width: 24px;
-            height: 24px;
-        }
-        
-        .contact {
-            background: #ffffff;
-            text-align: center;
-        }
-        
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .contact p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            color: #4a5568;
-        }
-        
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group input,
-        .form-group textarea {
+        .linkedin-link:hover { background: #005885; }
+        .linkedin-icon { width: 24px; height: 24px; }
+
+        .contact { background: #ffffff; text-align: center; }
+        .contact-content { max-width: 600px; margin: 0 auto; }
+        .contact p { font-size: 1.2em; margin-bottom: 30px; color: #4a5568; }
+        .contact-form { max-width: 500px; margin: 0 auto; text-align: left; }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea {
             width: 100%;
             padding: 15px;
             border: 2px solid #e2e8f0;
@@ -730,18 +422,8 @@
             font-family: inherit;
             transition: border-color 0.2s ease;
         }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #52a068;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #52a068; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
         .submit-button {
             width: 100%;
             padding: 15px 40px;
@@ -754,31 +436,13 @@
             cursor: pointer;
             transition: background 0.2s ease;
         }
-        
-        .submit-button:hover {
-            background: #458756;
-        }
-        
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-        }
+        .submit-button:hover { background: #458756; }
 
-        footer p {
-            margin-bottom: 5px;
-        }
+        footer { background: #2d3748; color: white; text-align: center; padding: 30px 20px; }
+        footer p { margin-bottom: 5px; }
+        .footer-email { color: #a0aec0; text-decoration: none; }
+        .footer-email:hover { color: #cbd5e0; }
 
-        .footer-email {
-            color: #a0aec0;
-            text-decoration: none;
-        }
-
-        .footer-email:hover {
-            color: #cbd5e0;
-        }
-        
         @media (max-width: 900px) {
             .demo-main-grid { grid-template-columns: 1fr; }
             .demo-stats-row { grid-template-columns: repeat(2, 1fr); }
@@ -786,7 +450,6 @@
             .demo-insight-row { grid-template-columns: 1fr; }
             .demo-insight-cell { border-right: none; border-bottom: 1px solid #e2e8f0; }
         }
-
         @media (max-width: 768px) {
             h1 { font-size: 2em; }
             .tagline { font-size: 1.1em; }
@@ -802,6 +465,59 @@
     </style>
 </head>
 <body>
+
+<!-- SVG symbol definitions (hidden) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <!-- target / crosshair -->
+    <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+    </symbol>
+    <!-- bar chart -->
+    <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="18" y="3" width="4" height="18"/><rect x="10" y="8" width="4" height="13"/><rect x="2" y="13" width="4" height="8"/>
+    </symbol>
+    <!-- plug / connect -->
+    <symbol id="icon-plug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8a6 6 0 0 1-12 0"/>
+    </symbol>
+    <!-- coin / currency -->
+    <symbol id="icon-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 6v.5M12 17.5V18M9 9.5a3 3 0 1 1 6 0c0 1.5-1.5 2-3 3s-3 1.5-3 3a3 3 0 0 0 6 0"/>
+    </symbol>
+    <!-- mobile -->
+    <symbol id="icon-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/>
+    </symbol>
+    <!-- lightning / zap -->
+    <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+    </symbol>
+    <!-- close / X -->
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </symbol>
+    <!-- map pin -->
+    <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+    </symbol>
+    <!-- pound / currency -->
+    <symbol id="icon-pound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 18H16M7 14h7M10 14V8.5a3.5 3.5 0 0 1 7 0"/>
+    </symbol>
+    <!-- gift / donation -->
+    <symbol id="icon-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+    </symbol>
+    <!-- search -->
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </symbol>
+    <!-- sparkle / demo indicator -->
+    <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+    </symbol>
+</svg>
+
     <nav class="navbar">
         <div class="navbar-content">
             <a href="#" class="navbar-logo">
@@ -815,7 +531,7 @@
             </div>
         </div>
     </nav>
-    
+
     <section class="hero">
         <div class="hero-content">
             <img src="R_logo.png" alt="Resona Logo" class="hero-logo">
@@ -832,11 +548,26 @@
             <div class="problem-content">
                 <p class="section-intro">Traditional fundraising platforms aren't built for distributed, volunteer-led campaigns. Organisations face significant barriers:</p>
                 <ul class="problem-list">
-                    <li>High platform fees that eat into smaller donations</li>
-                    <li>Complex tools that volunteers struggle to use effectively</li>
-                    <li>Limited visibility into individual fundraiser performance</li>
-                    <li>Lack of real-time tracking and leaderboards to motivate teams</li>
-                    <li>Poor integration with existing websites and communication tools</li>
+                    <li>
+                        <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        High platform fees that eat into smaller donations
+                    </li>
+                    <li>
+                        <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Complex tools that volunteers struggle to use effectively
+                    </li>
+                    <li>
+                        <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Limited visibility into individual fundraiser performance
+                    </li>
+                    <li>
+                        <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Lack of real-time tracking and leaderboards to motivate teams
+                    </li>
+                    <li>
+                        <svg class="problem-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        Poor integration with existing websites and communication tools
+                    </li>
                 </ul>
             </div>
         </div>
@@ -846,40 +577,35 @@
         <div class="container">
             <h2>Our Solution</h2>
             <p class="section-intro">Resona provides lightweight, embeddable micro-giving tools designed specifically for nonprofits, charities, and political campaigns running grassroots campaigns.</p>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <svg class="feature-icon"><use href="#icon-target"/></svg>
                     <h3>Individual Tracking</h3>
                     <p>Each fundraiser gets a unique identifier. Every donation is automatically attributed to the right person, giving you complete visibility into your grassroots network.</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Live Leaderboards & Maps</h3>
+                    <svg class="feature-icon"><use href="#icon-chart"/></svg>
+                    <h3>Live Leaderboards &amp; Maps</h3>
                     <p>Beautiful, embeddable widgets that show real-time fundraising progress. From competitive leaderboards to collaborative maps, we make the data engaging and motivating.</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">🔌</div>
+                    <svg class="feature-icon"><use href="#icon-plug"/></svg>
                     <h3>Seamless Integration</h3>
                     <p>Works with your existing payment infrastructure. Simple dashboards that embed anywhere. Automated data sync with no complex setup required. No extra platforms to remember!</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">💰</div>
+                    <svg class="feature-icon"><use href="#icon-coin"/></svg>
                     <h3>Cost-Effective</h3>
                     <p>Built on top of industry-standard payment processors like Stripe. You only pay standard processing fees - no additional platform charges eating into your mission.</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
+                    <svg class="feature-icon"><use href="#icon-mobile"/></svg>
                     <h3>Mobile-First Design</h3>
                     <p>All our tools are fully responsive and optimised for mobile devices, ensuring your fundraisers and donors have a seamless experience on any screen.</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <svg class="feature-icon"><use href="#icon-zap"/></svg>
                     <h3>Quick Deployment</h3>
                     <p>Go live in days, not months. Our tools are designed to integrate quickly with minimal technical overhead, so you can focus on your campaign.</p>
                 </div>
@@ -891,26 +617,22 @@
         <div class="container">
             <h2>How It Works</h2>
             <p class="section-intro">Getting started with Resona is straightforward. We handle the technical complexity so you can focus on your mission.</p>
-            
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Connect Your Payment System</h3>
                     <p>We integrate with your Stripe account (or similar) to track donations in real-time.</p>
                 </div>
-                
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Assign Fundraiser IDs</h3>
                     <p>Each volunteer receives a unique identifier that links their donations to your tracking system.</p>
                 </div>
-                
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Embed the Widgets</h3>
                     <p>Copy and paste our interactive dashboards into your website. We customise the look and feel to match your brand.</p>
                 </div>
-                
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Watch It Grow</h3>
@@ -924,32 +646,28 @@
         <div class="container">
             <h2>The Impact</h2>
             <p class="section-intro">Organisations using micro-giving tools see measurable improvements in fundraising performance and volunteer engagement.</p>
-            
             <div class="benefits-grid">
                 <div class="benefit">
-                    <div class="benefit-stat">2-3x</div>
+                    <div class="benefit-stat">2–3x</div>
                     <div class="benefit-label">Increase in volunteer engagement</div>
                 </div>
-                
                 <div class="benefit">
                     <div class="benefit-stat">Real-Time</div>
-                    <div class="benefit-label">Performance tracking & attribution</div>
+                    <div class="benefit-label">Performance tracking &amp; attribution</div>
                 </div>
-                
                 <div class="benefit">
                     <div class="benefit-stat">Zero</div>
                     <div class="benefit-label">Additional platform fees</div>
                 </div>
-                
                 <div class="benefit">
-                    <div class="benefit-stat">48hrs</div>
+                    <div class="benefit-stat">48 hrs</div>
                     <div class="benefit-label">Typical implementation time</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── Live Demo Section ── -->
+    <!-- Live Demo -->
     <section class="live-demo" id="demo">
         <div class="container">
             <h2>See It In Action</h2>
@@ -959,7 +677,8 @@
         <div style="max-width:1200px;margin:0 auto;padding:0 20px 80px;">
             <div class="demo-wrapper">
                 <div class="demo-banner">
-                    ✦ <strong>Interactive Demo</strong> - Explore the map, search for fundraisers, and see real-time stats in action
+                    <svg class="demo-banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <strong>Interactive Demo</strong> — Explore the map, search for fundraisers, and see real-time stats in action
                 </div>
 
                 <div class="demo-header">
@@ -1004,7 +723,10 @@
 
                         <div class="demo-sidebar">
                             <div class="demo-search-card">
-                                <input type="text" class="demo-search-input" id="d-searchInput" placeholder="Search by name or location…">
+                                <div class="demo-search-wrap">
+                                    <svg class="search-icon"><use href="#icon-search"/></svg>
+                                    <input type="text" class="demo-search-input" id="d-searchInput" placeholder="Search by name or location…">
+                                </div>
                             </div>
 
                             <div class="demo-list-card">
@@ -1082,23 +804,10 @@
                     <input type="hidden" name="_subject" value="New inquiry from Resona Micro-Giving">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" name="organisation" placeholder="Organisation Name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Tell us about your fundraising needs..." required></textarea>
-                    </div>
-                    
+                    <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
+                    <div class="form-group"><input type="text" name="organisation" placeholder="Organisation Name" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Tell us about your fundraising needs..." required></textarea></div>
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
             </div>
@@ -1113,6 +822,11 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script>
+        // SVG strings for inline use in JS-generated HTML
+        const SVG_PIN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`;
+        const SVG_POUND = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 18H16M7 14h7M10 14V8.5a3.5 3.5 0 0 1 7 0"/></svg>`;
+        const SVG_GIFT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>`;
+
         const DEMO_FUNDRAISERS = [
             { id: 'sarah_london',     name: 'Sarah',   location: 'London',      coords: [51.5074, -0.1278], total: 1240.00, count: 31 },
             { id: 'james_manchester', name: 'James',   location: 'Manchester',  coords: [53.4808, -2.2426], total: 875.50,  count: 22 },
@@ -1204,10 +918,10 @@
             container.innerHTML = data.map(f => `
                 <div class="demo-fundraiser-item" data-id="${f.id}" onclick="highlightFundraiser('${f.id}')">
                     <div class="dfi-name">${f.name}</div>
-                    <div class="dfi-location">📍 ${f.location}</div>
+                    <div class="dfi-location">${SVG_PIN} ${f.location}</div>
                     <div class="dfi-stats">
-                        <span>💷 <strong>£${f.total.toFixed(2)}</strong></span>
-                        <span>🎯 ${f.count} donation${f.count!==1?'s':''}</span>
+                        <span class="dfi-stat-item">${SVG_POUND} <strong>£${f.total.toFixed(2)}</strong></span>
+                        <span class="dfi-stat-item">${SVG_GIFT} ${f.count} donation${f.count!==1?'s':''}</span>
                     </div>
                 </div>
             `).join('');
@@ -1230,7 +944,6 @@
             updateDemoMap(filteredFundraisers);
         }
 
-        // Init demo
         initDemoMap();
         updateDemoStats(allFundraisers);
         updateDemoInsights(allFundraisers);
@@ -1241,5 +954,3 @@
     </script>
 </body>
 </html>
-
-
