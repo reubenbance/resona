@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resona | Grassroots Fundraising Solutions</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
     <style>
         html {
             scroll-behavior: smooth;
@@ -321,6 +324,307 @@
             color: #4a5568;
         }
 
+        /* ── Live Demo Section ── */
+        .live-demo {
+            background: #f7fafc;
+            padding: 80px 0 0;
+        }
+
+        .live-demo > .container {
+            padding-bottom: 0;
+        }
+
+        .live-demo h2 {
+            color: #2d3748;
+        }
+
+        .demo-wrapper {
+            margin-top: 40px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .demo-banner {
+            background: #52a068;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .demo-banner strong { font-weight: 700; }
+
+        /* Dashboard styles */
+        .demo-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 24px 28px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .demo-header-left h3 {
+            font-size: 22px;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+
+        .demo-header-left p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #e8f5ec;
+            color: #3d7a50;
+            border: 1px solid #a8d5b5;
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #52a068;
+            border-radius: 50%;
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .demo-body {
+            background: #f4f9f5;
+            padding: 20px;
+        }
+
+        .demo-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .demo-stat-card {
+            background: white;
+            border: 1px solid #d4e4d8;
+            border-radius: 10px;
+            padding: 18px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: #52a068;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .demo-stat-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #3d7a50;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .demo-stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        .demo-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .demo-map-card {
+            background: white;
+            border: 1px solid #d4e4d8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .demo-card-header {
+            padding: 14px 18px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .demo-card-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .demo-card-sub {
+            font-size: 12px;
+            color: #a0aec0;
+        }
+
+        #demo-map {
+            height: 440px;
+        }
+
+        .demo-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .demo-search-card {
+            background: white;
+            border: 1px solid #d4e4d8;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .demo-search-input {
+            width: 100%;
+            padding: 9px 13px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 7px;
+            font-size: 13px;
+            font-family: inherit;
+            color: #2d3748;
+            background: #f4f9f5;
+            transition: border-color 0.2s;
+        }
+
+        .demo-search-input:focus {
+            outline: none;
+            border-color: #52a068;
+            background: white;
+        }
+
+        .demo-list-card {
+            background: white;
+            border: 1px solid #d4e4d8;
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .demo-fundraiser-items {
+            max-height: 340px;
+            overflow-y: auto;
+        }
+
+        .demo-fundraiser-item {
+            padding: 13px 16px;
+            border-bottom: 1px solid #f1f3f5;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .demo-fundraiser-item:last-child { border-bottom: none; }
+        .demo-fundraiser-item:hover { background: #f4f9f5; }
+
+        .demo-fundraiser-item.highlighted {
+            background: #e8f5ec;
+            border-left: 3px solid #52a068;
+        }
+
+        .dfi-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+
+        .dfi-location {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 7px;
+        }
+
+        .dfi-stats {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+
+        .dfi-stats strong { color: #3d7a50; }
+
+        .demo-insights-card {
+            background: white;
+            border: 1px solid #d4e4d8;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .demo-insight-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .demo-insight-cell {
+            padding: 14px 18px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .demo-insight-cell:last-child { border-right: none; }
+
+        .demo-insight-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #718096;
+            margin-bottom: 5px;
+        }
+
+        .demo-insight-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .demo-footer-bar {
+            text-align: center;
+            padding: 12px;
+            font-size: 12px;
+            color: #a0aec0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Leaflet cluster colours to match brand */
+        .marker-cluster-small { background-color: rgba(82,160,104,0.5); }
+        .marker-cluster-small div { background-color: rgba(82,160,104,0.85); }
+        .marker-cluster-medium { background-color: rgba(61,122,80,0.5); }
+        .marker-cluster-medium div { background-color: rgba(61,122,80,0.85); }
+        .marker-cluster-large { background-color: rgba(41,92,58,0.5); }
+        .marker-cluster-large div { background-color: rgba(41,92,58,0.85); }
+        .marker-cluster { color: white; font-weight: 700; }
+
+        /* ── About & Contact ── */
         .about {
             background: #f7fafc;
         }
@@ -475,52 +779,25 @@
             color: #cbd5e0;
         }
         
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .tagline {
-                font-size: 1.1em;
-            }
-            
-            h2 {
-                font-size: 2em;
-            }
+        @media (max-width: 900px) {
+            .demo-main-grid { grid-template-columns: 1fr; }
+            .demo-stats-row { grid-template-columns: repeat(2, 1fr); }
+            #demo-map { height: 320px; }
+            .demo-insight-row { grid-template-columns: 1fr; }
+            .demo-insight-cell { border-right: none; border-bottom: 1px solid #e2e8f0; }
+        }
 
-            .features-grid,
-            .steps,
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-content {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-            
-            .about-photo img {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .navbar-brand {
-                display: none;
-            }
-            
-            .navbar-links {
-                gap: 10px;
-            }
-            
-            .navbar-link {
-                font-size: 0.85em;
-            }
-            
-            .navbar-cta {
-                padding: 8px 15px;
-                font-size: 0.85em;
-            }
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            .tagline { font-size: 1.1em; }
+            h2 { font-size: 2em; }
+            .features-grid, .steps, .benefits-grid { grid-template-columns: 1fr; }
+            .about-content { flex-direction: column; gap: 30px; text-align: center; }
+            .about-photo img { width: 200px; height: 200px; }
+            .navbar-brand { display: none; }
+            .navbar-links { gap: 10px; }
+            .navbar-link { font-size: 0.85em; }
+            .navbar-cta { padding: 8px 15px; font-size: 0.85em; }
         }
     </style>
 </head>
@@ -532,6 +809,7 @@
                 <span class="navbar-brand">RESONA</span>
             </a>
             <div class="navbar-links">
+                <a href="#demo" class="navbar-link">Live Demo</a>
                 <a href="#about" class="navbar-link">About</a>
                 <a href="#contact" class="navbar-cta">Get In Touch</a>
             </div>
@@ -671,6 +949,104 @@
         </div>
     </section>
 
+    <!-- ── Live Demo Section ── -->
+    <section class="live-demo" id="demo">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <p class="section-intro">This is a live example of a Resona fundraising dashboard — the kind of tool your volunteers and campaign managers would use every day. All data below is illustrative.</p>
+        </div>
+
+        <div style="max-width:1200px;margin:0 auto;padding:0 20px 80px;">
+            <div class="demo-wrapper">
+                <div class="demo-banner">
+                    ✦ <strong>Interactive Demo</strong> — Explore the map, search for fundraisers, and see real-time stats in action
+                </div>
+
+                <div class="demo-header">
+                    <div class="demo-header-left">
+                        <h3>Campaign Fundraising Network</h3>
+                        <p>Track every fundraiser, every donation, in real time</p>
+                    </div>
+                    <div class="live-badge">
+                        <div class="pulse-dot"></div>
+                        Live Dashboard
+                    </div>
+                </div>
+
+                <div class="demo-body">
+                    <div class="demo-stats-row">
+                        <div class="demo-stat-card">
+                            <div class="demo-stat-value" id="d-totalRaised">£0</div>
+                            <div class="demo-stat-label">Total Raised</div>
+                        </div>
+                        <div class="demo-stat-card">
+                            <div class="demo-stat-value" id="d-totalFundraisers">0</div>
+                            <div class="demo-stat-label">Active Fundraisers</div>
+                        </div>
+                        <div class="demo-stat-card">
+                            <div class="demo-stat-value" id="d-totalDonations">0</div>
+                            <div class="demo-stat-label">Total Donations</div>
+                        </div>
+                        <div class="demo-stat-card">
+                            <div class="demo-stat-value" id="d-avgDonation">£0</div>
+                            <div class="demo-stat-label">Avg per Fundraiser</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-main-grid">
+                        <div class="demo-map-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">Fundraiser Network Map</span>
+                                <span class="demo-card-sub">Click a pin to highlight</span>
+                            </div>
+                            <div id="demo-map"></div>
+                        </div>
+
+                        <div class="demo-sidebar">
+                            <div class="demo-search-card">
+                                <input type="text" class="demo-search-input" id="d-searchInput" placeholder="Search by name or location…">
+                            </div>
+
+                            <div class="demo-list-card">
+                                <div class="demo-card-header">
+                                    <span class="demo-card-title">All Fundraisers</span>
+                                    <span class="demo-card-sub" id="d-resultCount">—</span>
+                                </div>
+                                <div class="demo-fundraiser-items" id="d-fundraiserList">
+                                    <div style="padding:24px;text-align:center;color:#a0aec0;font-size:14px;">Loading…</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-insights-card">
+                        <div class="demo-card-header">
+                            <span class="demo-card-title">Network Insights</span>
+                        </div>
+                        <div class="demo-insight-row">
+                            <div class="demo-insight-cell">
+                                <div class="demo-insight-label">Top Location</div>
+                                <div class="demo-insight-value" id="d-topLocation">—</div>
+                            </div>
+                            <div class="demo-insight-cell">
+                                <div class="demo-insight-label">Most Active Fundraiser</div>
+                                <div class="demo-insight-value" id="d-topFundraiser">—</div>
+                            </div>
+                            <div class="demo-insight-cell">
+                                <div class="demo-insight-label">Avg Donations / Person</div>
+                                <div class="demo-insight-value" id="d-avgDonationsPerPerson">—</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-footer-bar">
+                    Powered by Resona · Embeddable fundraising tools for grassroots campaigns
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="about" id="about">
         <div class="container">
             <h2>About Resona</h2>
@@ -733,5 +1109,135 @@
         <p>&copy; 2025 Resona Consulting Ltd. All rights reserved.</p>
         <p><a href="mailto:reubenbance@gmail.com" class="footer-email">reubenbance@gmail.com</a></p>
     </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script>
+        const DEMO_FUNDRAISERS = [
+            { id: 'sarah_london',     name: 'Sarah',   location: 'London',      coords: [51.5074, -0.1278], total: 1240.00, count: 31 },
+            { id: 'james_manchester', name: 'James',   location: 'Manchester',  coords: [53.4808, -2.2426], total: 875.50,  count: 22 },
+            { id: 'priya_birmingham', name: 'Priya',   location: 'Birmingham',  coords: [52.4862, -1.8904], total: 620.00,  count: 18 },
+            { id: 'tom_edinburgh',    name: 'Tom',     location: 'Edinburgh',   coords: [55.9533, -3.1883], total: 540.00,  count: 14 },
+            { id: 'chloe_bristol',    name: 'Chloe',   location: 'Bristol',     coords: [51.4545, -2.5879], total: 490.00,  count: 13 },
+            { id: 'dan_leeds',        name: 'Dan',     location: 'Leeds',       coords: [53.8008, -1.5491], total: 410.00,  count: 11 },
+            { id: 'amara_cardiff',    name: 'Amara',   location: 'Cardiff',     coords: [51.4816, -3.1791], total: 375.00,  count: 10 },
+            { id: 'ben_liverpool',    name: 'Ben',     location: 'Liverpool',   coords: [53.4084, -2.9916], total: 320.00,  count: 9  },
+            { id: 'helen_sheffield',  name: 'Helen',   location: 'Sheffield',   coords: [53.3811, -1.4701], total: 285.00,  count: 8  },
+            { id: 'ryan_glasgow',     name: 'Ryan',    location: 'Glasgow',     coords: [55.8642, -4.2518], total: 260.00,  count: 7  },
+            { id: 'nina_cambridge',   name: 'Nina',    location: 'Cambridge',   coords: [52.2053,  0.1218], total: 240.00,  count: 6  },
+            { id: 'oliver_oxford',    name: 'Oliver',  location: 'Oxford',      coords: [51.7520, -1.2577], total: 215.00,  count: 6  },
+            { id: 'mei_nottingham',   name: 'Mei',     location: 'Nottingham',  coords: [52.9548, -1.1581], total: 195.00,  count: 5  },
+            { id: 'luca_brighton',    name: 'Luca',    location: 'Brighton',    coords: [50.8225, -0.1372], total: 180.00,  count: 5  },
+            { id: 'grace_newcastle',  name: 'Grace',   location: 'Newcastle',   coords: [54.9783, -1.6178], total: 165.00,  count: 4  },
+        ];
+
+        let allFundraisers = DEMO_FUNDRAISERS;
+        let filteredFundraisers = allFundraisers;
+        let demoMap, markersLayer;
+
+        function initDemoMap() {
+            demoMap = L.map('demo-map', { zoomControl: true }).setView([54, -2], 6);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 18
+            }).addTo(demoMap);
+            markersLayer = L.markerClusterGroup();
+            demoMap.addLayer(markersLayer);
+        }
+
+        function greenIcon() {
+            return L.divIcon({
+                className: '',
+                html: `<div style="width:13px;height:13px;background:#52a068;border:2px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.35);"></div>`,
+                iconSize: [13, 13],
+                iconAnchor: [6, 6]
+            });
+        }
+
+        function updateDemoMap(data) {
+            markersLayer.clearLayers();
+            data.forEach(f => {
+                const marker = L.marker(f.coords, { icon: greenIcon() });
+                marker.bindPopup(`
+                    <div style="font-family:system-ui,sans-serif;text-align:center;min-width:130px;padding:4px 0;">
+                        <strong style="font-size:14px;color:#3d7a50;">${f.name}</strong><br>
+                        <span style="color:#718096;font-size:12px;">from ${f.location}</span>
+                        <div style="margin-top:8px;padding-top:8px;border-top:1px solid #e2e8f0;">
+                            <span style="font-size:20px;font-weight:700;color:#3d7a50;">£${f.total.toFixed(2)}</span><br>
+                            <span style="font-size:12px;color:#718096;">${f.count} donation${f.count!==1?'s':''}</span>
+                        </div>
+                    </div>
+                `);
+                marker.on('click', () => highlightFundraiser(f.id));
+                markersLayer.addLayer(marker);
+            });
+        }
+
+        function updateDemoStats(data) {
+            const total = data.reduce((s, f) => s + f.total, 0);
+            const donations = data.reduce((s, f) => s + f.count, 0);
+            const avg = data.length ? total / data.length : 0;
+            document.getElementById('d-totalRaised').textContent = `£${total.toLocaleString('en-GB', {minimumFractionDigits:2,maximumFractionDigits:2})}`;
+            document.getElementById('d-totalFundraisers').textContent = data.length;
+            document.getElementById('d-totalDonations').textContent = donations;
+            document.getElementById('d-avgDonation').textContent = `£${avg.toFixed(0)}`;
+        }
+
+        function updateDemoInsights(data) {
+            if (!data.length) return;
+            const locTotals = {};
+            data.forEach(f => { locTotals[f.location] = (locTotals[f.location] || 0) + f.total; });
+            const topLoc = Object.entries(locTotals).sort((a,b) => b[1]-a[1])[0];
+            document.getElementById('d-topLocation').textContent = `${topLoc[0]} (£${topLoc[1].toFixed(0)})`;
+            const topF = [...data].sort((a,b) => b.count - a.count)[0];
+            document.getElementById('d-topFundraiser').textContent = `${topF.name} · ${topF.count} donations`;
+            const avgD = data.reduce((s,f) => s + f.count, 0) / data.length;
+            document.getElementById('d-avgDonationsPerPerson').textContent = avgD.toFixed(1);
+        }
+
+        function renderDemoList(data) {
+            const container = document.getElementById('d-fundraiserList');
+            if (!data.length) {
+                container.innerHTML = '<div style="padding:20px;text-align:center;color:#a0aec0;font-size:13px;">No fundraisers found</div>';
+                return;
+            }
+            container.innerHTML = data.map(f => `
+                <div class="demo-fundraiser-item" data-id="${f.id}" onclick="highlightFundraiser('${f.id}')">
+                    <div class="dfi-name">${f.name}</div>
+                    <div class="dfi-location">📍 ${f.location}</div>
+                    <div class="dfi-stats">
+                        <span>💷 <strong>£${f.total.toFixed(2)}</strong></span>
+                        <span>🎯 ${f.count} donation${f.count!==1?'s':''}</span>
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('d-resultCount').textContent = `${data.length} fundraiser${data.length!==1?'s':''}`;
+        }
+
+        function highlightFundraiser(id) {
+            document.querySelectorAll('.demo-fundraiser-item').forEach(el => el.classList.remove('highlighted'));
+            const el = document.querySelector(`.demo-fundraiser-item[data-id="${id}"]`);
+            if (el) { el.classList.add('highlighted'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+            const f = allFundraisers.find(x => x.id === id);
+            if (f) demoMap.setView(f.coords, 10);
+        }
+
+        function filterFundraisers(term) {
+            filteredFundraisers = term
+                ? allFundraisers.filter(f => f.name.toLowerCase().includes(term) || f.location.toLowerCase().includes(term))
+                : allFundraisers;
+            renderDemoList(filteredFundraisers);
+            updateDemoMap(filteredFundraisers);
+        }
+
+        // Init demo
+        initDemoMap();
+        updateDemoStats(allFundraisers);
+        updateDemoInsights(allFundraisers);
+        renderDemoList(allFundraisers);
+        updateDemoMap(allFundraisers);
+
+        document.getElementById('d-searchInput').addEventListener('input', e => filterFundraisers(e.target.value.toLowerCase()));
+    </script>
 </body>
 </html>
